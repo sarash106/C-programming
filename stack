@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include<stdlib.h>
+#define max 5
+int top = -1,stack[max];
+int c;
+void push();
+void pop();
+void peek();
+void display();
+void main(){
+    while(1){
+    printf("Enter your choice  : ");
+    scanf("%d",&c);
+    switch(c){
+        case 1:
+        push();
+        break;
+        case 2:
+        pop();
+        break;
+        case 3: 
+        peek();
+        break;
+        case 4:
+        display();
+        break;
+        default:
+        printf("you have entered wrong choice");
+    }
+    }
+}
+void push(){
+    if(top == max-1){
+        printf("Stack is full");
+    }
+    else{
+        int x;
+        printf("Enter the value to be pushed : ");
+        scanf("%d",&x);
+        top = top+1;
+        stack[top] = x;
+    }
+}
+    
+void pop(){
+    if(top == -1){
+        printf("underflow");
+    }
+    else{
+        top =top-1;
+    }
+}
+void peek(){
+    int z;
+    z = stack[top];
+    if(top != -1){
+        printf(" the value stored at the top of the stack = %d",z);
+    }
+}
+void display(){
+    int i;
+    if(top == -1){
+        printf("underflow");
+    }
+    else{
+        printf("--------stack is-------\n");
+        for(i =top;i>=0;i--){
+            printf("%d\n",stack[i]);
+        }
+    }
+}
